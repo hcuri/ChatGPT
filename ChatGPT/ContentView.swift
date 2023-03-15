@@ -6,56 +6,67 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct ContentView: View {
-    @State private var userInput: String = ""
+    @State private var inputText: String = ""
     @State private var messages: [Message] = []
+    private let chatGPTManager: ChatGPTManager?
+
+    init() {
+        chatGPTManager = ChatGPTManager()
+    }
 
     var body: some View {
         VStack {
-            // Display conversation
             ScrollView {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(messages) { message in
-                        MessageView(content: message.content, isUser: message.isUser)
+                ScrollViewReader { scrollView in
+                    LazyVStack {
+                        ForEach(messages) { message in
+                            MessageView(content: message.content, isUser: message.isUser)
+                        }
+                    }
+                    .onChange(of: messages.count) { _ in
+                        scrollView.scrollTo(messages.count - 1, anchor: .bottom)
                     }
                 }
             }
-            .padding()
-
-            // User input and send button
             HStack {
-                TextField("Type your message...", text: $userInput)
+                TextField("Type your message...", text: $inputText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.leading)
-
+                    .padding(10)
                 Button(action: sendMessage) {
-                    Image(systemName: "paperplane")
-                        .padding()
+                    Text("Send")
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
             }
+            .padding(.bottom)
         }
-        .padding(.bottom)
+        .padding()
     }
 
     private func sendMessage() {
-        let trimmedInput = userInput.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        let trimmedInput = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         if !trimmedInput.isEmpty {
             let userMessage = Message(content: trimmedInput, isUser: true)
             messages.append(userMessage)
+            inputText = ""
 
-            // Call the ChatGPT API and display the response (details in step 4)
-
-            userInput = ""
+            chatGPTManager?.sendMessage(trimmedInput) { response in
+                DispatchQueue.main.async {
+                    if let responseText = response {
+                        let aiMessage = Message(content: responseText, isUser: false)
+                        messages.append(aiMessage)
+                    } else {
+                        // Handle error or show a default message
+                    }
+                }
+            }
         }
-    }
-}
-
-// This is preview code that came with the project, will review later
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
@@ -74,16 +85,20 @@ struct MessageView: View {
             if isUser {
                 Spacer()
             }
-            
             Text(content)
-                .padding()
+                .padding(10)
                 .background(isUser ? Color.blue : Color.gray)
                 .foregroundColor(isUser ? .white : .black)
-                .cornerRadius(8)
-            
+                .cornerRadius(10)
             if !isUser {
                 Spacer()
             }
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
