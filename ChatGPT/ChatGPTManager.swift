@@ -30,7 +30,6 @@ class ChatGPTManager {
         ]
         
         let parameters: Parameters = [
-            "model": "gpt-3.5-turbo",
             "prompt": "User: \(message)\nAI:",
             "max_tokens": 50,
             "n": 1,
