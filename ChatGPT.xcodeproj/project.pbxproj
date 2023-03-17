@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F882AFC29C16B4800DCD6DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1F882AFB29C16B4800DCD6DF /* Alamofire */; };
-		1F882B0029C16CE500DCD6DF /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F882AFF29C16CE500DCD6DF /* APIKeys.plist */; };
 		1F882B0329C4EC2300DCD6DF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F882B0229C4EC2300DCD6DF /* WebView.swift */; };
 		1FC466CB29C15CA900902CE0 /* ChatGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC466CA29C15CA900902CE0 /* ChatGPTApp.swift */; };
 		1FC466CD29C15CA900902CE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC466CC29C15CA900902CE0 /* ContentView.swift */; };
@@ -37,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F882AFF29C16CE500DCD6DF /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		1F882B0229C4EC2300DCD6DF /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		1FC466C729C15CA900902CE0 /* ChatGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC466CA29C15CA900902CE0 /* ChatGPTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTApp.swift; sourceTree = "<group>"; };
@@ -56,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F882AFC29C16B4800DCD6DF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +76,6 @@
 		1FC466BE29C15CA900902CE0 = {
 			isa = PBXGroup;
 			children = (
-				1F882AFF29C16CE500DCD6DF /* APIKeys.plist */,
 				1FC466C929C15CA900902CE0 /* ChatGPT */,
 				1FC466DA29C15CAA00902CE0 /* ChatGPTTests */,
 				1FC466E429C15CAA00902CE0 /* ChatGPTUITests */,
@@ -152,7 +147,6 @@
 			);
 			name = ChatGPT;
 			packageProductDependencies = (
-				1F882AFB29C16B4800DCD6DF /* Alamofire */,
 			);
 			productName = ChatGPT;
 			productReference = 1FC466C729C15CA900902CE0 /* ChatGPT.app */;
@@ -227,7 +221,6 @@
 			);
 			mainGroup = 1FC466BE29C15CA900902CE0;
 			packageReferences = (
-				1F882AFA29C16B4800DCD6DF /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 1FC466C829C15CA900902CE0 /* Products */;
 			projectDirPath = "";
@@ -245,7 +238,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F882B0029C16CE500DCD6DF /* APIKeys.plist in Resources */,
 				1FC466D229C15CAA00902CE0 /* Preview Assets.xcassets in Resources */,
 				1FC466CF29C15CAA00902CE0 /* Assets.xcassets in Resources */,
 			);
@@ -601,25 +593,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1F882AFA29C16B4800DCD6DF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1F882AFB29C16B4800DCD6DF /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1F882AFA29C16B4800DCD6DF /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FC466BF29C15CA900902CE0 /* Project object */;
 }
