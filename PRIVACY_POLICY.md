@@ -12,7 +12,7 @@ The App does not collect any personal information directly. However, the App acc
 
 The App uses the data you enter solely to provide you with the intended functionality of interacting with ChatGPT. The data you provide through the App is sent to OpenAI's servers to process your requests and generate responses.
 
-Please note that OpenAI has its own privacy policy, which you can review at https://platform.openai.com/docs/privacy-policy to understand how they handle your data.
+Please note that OpenAI has its own privacy policy, which you can review at https://openai.com/policies/privacy-policy to understand how they handle your data.
 
 ## Data Protection
 
